@@ -7,13 +7,13 @@
             <column name="id"/>
             <generator class="assigned"/>
         </id>
-        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="people">
+        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="commenter">
             <column name="people_id" not-null="true"/>
         </many-to-one>
         <property name="comment" type="string">
             <column name="comment" not-null="true"/>
         </property>
-        <property name="dateEvent" type="timestamp">
+        <property name="dateComment" type="timestamp">
             <column length="35" name="date_event" not-null="true"/>
         </property>
     </class>

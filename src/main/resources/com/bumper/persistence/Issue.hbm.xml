@@ -7,9 +7,6 @@
             <column name="id"/>
             <generator class="assigned"/>
         </id>
-        <version name="version" type="string">
-            <column length="50" name="version"/>
-        </version>
         <many-to-one class="com.bumper.utils.pojo.Dataset" fetch="select" name="dataset">
             <column name="dataset_id" not-null="true"/>
         </many-to-one>
@@ -22,14 +19,23 @@
         <property name="exteralId" type="string">
             <column length="50" name="exteral_id" not-null="true"/>
         </property>
-        <property name="statusId" type="java.lang.Integer">
-            <column name="status_id"/>
+        <property name="status" column="status_id">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.bumper.utils.pojo.Status</param>
+            </type>
+        </property>   
+        <property name="severity" column="severity_id">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.bumper.utils.pojo.Severity</param>
+            </type>
         </property>
-        <property name="severityId" type="java.lang.Integer">
-            <column name="severity_id"/>
+        <property name="resolution" column="resolution_id">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.bumper.utils.pojo.Resolution</param>
+            </type>
         </property>
-        <property name="resolutionId" type="java.lang.Integer">
-            <column name="resolution_id"/>
+        <property name="targetVersion" type="string">
+            <column length="50" name="target_version" not-null="true"/>
         </property>
         <property name="shortDescription" type="string">
             <column length="200" name="short_description" not-null="true"/>
@@ -37,14 +43,16 @@
         <property name="longDescription" type="string">
             <column name="long_description"/>
         </property>
-        <property name="typeId" type="java.lang.Integer">
-            <column name="type_id"/>
+        <property name="issueType" column="type_id">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.bumper.utils.pojo.IssueType</param>
+            </type>
         </property>
         <set fetch="select" inverse="true" lazy="true" name="issueEvents" table="issue_event">
             <key>
                 <column name="issue_id" not-null="true"/>
             </key>
-            <one-to-many class="com.bumper.utils.pojo.IssueEvent"/>
+            <one-to-many class="com.bumper.utils.pojo.LifecycleEvent"/>
         </set>
         <set fetch="select" inverse="false" lazy="true" name="comments" table="issue_comment">
             <key>

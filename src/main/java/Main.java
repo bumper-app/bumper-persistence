@@ -15,7 +15,9 @@ public class Main {
     public static void main(String[] args) {
 
         PeopleDAO pdao = new PeopleDAO();
-        pdao.findById(1);
+       
+        
+        System.out.println(pdao.findById(1));
 
     }
 

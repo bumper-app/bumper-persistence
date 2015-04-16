@@ -7,6 +7,7 @@
         <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/bumper</property>
         <property name="hibernate.connection.username">bumper</property>
         <property name="hibernate.connection.password">bumper</property>
+        <property name="hibernate.show_sql">true</property>
         <mapping resource="com/bumper/persistence/File.hbm.xml"/>
         <mapping resource="com/bumper/persistence/Project.hbm.xml"/>
         <mapping resource="com/bumper/persistence/Comment.hbm.xml"/>

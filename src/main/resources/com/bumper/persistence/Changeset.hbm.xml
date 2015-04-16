@@ -7,10 +7,10 @@
             <column name="id"/>
             <generator class="assigned"/>
         </id>
-        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="people">
+        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="commiter">
             <column name="commiter_id" not-null="true"/>
         </many-to-one>
-        <property name="dateCommit" type="timestamp">
+        <property name="commitDate" type="timestamp">
             <column length="35" name="date_commit" not-null="true"/>
         </property>
         <property name="commitMessage" type="string">
@@ -19,8 +19,10 @@
         <property name="commitRevision" type="string">
             <column name="commit_revision" not-null="true"/>
         </property>
-        <property name="changesetTypeId" type="int">
-            <column name="changeset_type_id" not-null="true"/>
+        <property name="changesetType" column="changeset_type_id">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.bumper.utils.pojo.changeset.ChangesetType</param>
+            </type>
         </property>
         <set fetch="select" inverse="true" lazy="true" name="changes" table="change">
             <key>

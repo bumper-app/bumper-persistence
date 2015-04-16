@@ -7,17 +7,11 @@
             <column name="id"/>
             <generator class="assigned"/>
         </id>
-        <many-to-one class="com.bumper.utils.pojo.Project" fetch="select" name="project">
+        <many-to-one class="com.bumper.utils.pojo.Project" fetch="select" name="parentProject">
             <column name="parent_id"/>
         </many-to-one>
         <property name="name" type="string">
             <column length="50" name="name" not-null="true"/>
         </property>
-        <set fetch="select" inverse="true" lazy="true" name="projects" table="project">
-            <key>
-                <column name="parent_id"/>
-            </key>
-            <one-to-many class="com.bumper.utils.pojo.Project"/>
-        </set>
     </class>
 </hibernate-mapping>

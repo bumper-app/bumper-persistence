@@ -3,7 +3,7 @@
 <!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="com.bumper.utils.pojo.changeset.Change" optimistic-lock="version" schema="public" table="change">
-        <id name="bumperID" type="int">
+        <id name="id" type="int">
             <column name="id"/>
             <generator class="assigned"/>
         </id>
