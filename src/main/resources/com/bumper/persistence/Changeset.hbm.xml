@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bumper.utils.pojo.changeset.AbstractChangeset" optimistic-lock="version" schema="public" table="changeset">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="people">
+            <column name="commiter_id" not-null="true"/>
+        </many-to-one>
+        <property name="dateCommit" type="timestamp">
+            <column length="35" name="date_commit" not-null="true"/>
+        </property>
+        <property name="commitMessage" type="string">
+            <column name="commit_message" not-null="true"/>
+        </property>
+        <property name="commitRevision" type="string">
+            <column name="commit_revision" not-null="true"/>
+        </property>
+        <property name="changesetTypeId" type="int">
+            <column name="changeset_type_id" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="changes" table="change">
+            <key>
+                <column name="changeset_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.bumper.utils.pojo.changeset.Change"/>
+        </set>
+    </class>
+</hibernate-mapping>

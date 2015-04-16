@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bumper.utils.pojo.Project" optimistic-lock="version" schema="public" table="project">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.bumper.utils.pojo.Project" fetch="select" name="project">
+            <column name="parent_id"/>
+        </many-to-one>
+        <property name="name" type="string">
+            <column length="50" name="name" not-null="true"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="projects" table="project">
+            <key>
+                <column name="parent_id"/>
+            </key>
+            <one-to-many class="com.bumper.utils.pojo.Project"/>
+        </set>
+    </class>
+</hibernate-mapping>

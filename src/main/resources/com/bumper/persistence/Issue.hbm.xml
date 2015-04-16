@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bumper.utils.pojo.Issue" schema="public" table="issue">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <version name="version" type="string">
+            <column length="50" name="version"/>
+        </version>
+        <many-to-one class="com.bumper.utils.pojo.Dataset" fetch="select" name="dataset">
+            <column name="dataset_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="people">
+            <column name="reporter_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="com.bumper.utils.pojo.Project" fetch="select" name="project">
+            <column name="project_id" not-null="true"/>
+        </many-to-one>
+        <property name="exteralId" type="string">
+            <column length="50" name="exteral_id" not-null="true"/>
+        </property>
+        <property name="statusId" type="java.lang.Integer">
+            <column name="status_id"/>
+        </property>
+        <property name="severityId" type="java.lang.Integer">
+            <column name="severity_id"/>
+        </property>
+        <property name="resolutionId" type="java.lang.Integer">
+            <column name="resolution_id"/>
+        </property>
+        <property name="shortDescription" type="string">
+            <column length="200" name="short_description" not-null="true"/>
+        </property>
+        <property name="longDescription" type="string">
+            <column name="long_description"/>
+        </property>
+        <property name="typeId" type="java.lang.Integer">
+            <column name="type_id"/>
+        </property>
+        <set fetch="select" inverse="true" lazy="true" name="issueEvents" table="issue_event">
+            <key>
+                <column name="issue_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.bumper.utils.pojo.IssueEvent"/>
+        </set>
+        <set fetch="select" inverse="false" lazy="true" name="comments" table="issue_comment">
+            <key>
+                <column name="issue_id" not-null="true"/>
+            </key>
+            <many-to-many entity-name="com.bumper.utils.pojo.Comment">
+                <column name="comment_id" not-null="true"/>
+            </many-to-many>
+        </set>
+        <set fetch="select" inverse="true" lazy="true" name="changesets" table="changeset">
+            <key>
+                <column name="issue_id" not-null="true"/>
+            </key>
+            <one-to-many class="com.bumper.utils.pojo.changeset.AbstractChangeset"/>
+        </set>
+    </class>
+</hibernate-mapping>

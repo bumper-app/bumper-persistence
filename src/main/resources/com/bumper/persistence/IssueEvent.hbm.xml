@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bumper.utils.pojo.IssueEvent" optimistic-lock="version" schema="public" table="issue_event">
+        <id name="id" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.bumper.utils.pojo.People" fetch="select" name="people">
+            <column name="people_id" not-null="true"/>
+        </many-to-one>
+        <property name="dateEvent" type="timestamp">
+            <column length="35" name="date_event" not-null="true"/>
+        </property>
+        <property name="typeEvent" type="int">
+            <column name="type_event" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

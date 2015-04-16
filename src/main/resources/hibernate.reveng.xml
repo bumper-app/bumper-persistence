@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="bumper" match-schema="public"/>
+  <table-filter match-name="file"/>
+  <table-filter match-name="project"/>
+  <table-filter match-name="issue_comment"/>
+  <table-filter match-name="changeset"/>
+  <table-filter match-name="issue_event"/>
+  <table-filter match-name="comment"/>
+  <table-filter match-name="issue"/>
+  <table-filter match-name="change"/>
+  <table-filter match-name="people"/>
+  <table-filter match-name="dataset"/>
+</hibernate-reverse-engineering>

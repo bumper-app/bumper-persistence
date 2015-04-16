@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 16, 2015 9:54:41 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.bumper.utils.pojo.changeset.Change" optimistic-lock="version" schema="public" table="change">
+        <id name="bumperID" type="int">
+            <column name="id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="com.bumper.utils.pojo.File" fetch="select" name="file">
+            <column name="file_id" not-null="true"/>
+        </many-to-one>
+        <property name="position" type="string">
+            <column length="200" name="position" not-null="true"/>
+        </property>
+        <property name="insertion" type="int">
+            <column name="insertion" not-null="true"/>
+        </property>
+        <property name="deletion" type="int">
+            <column name="deletion" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
