@@ -49,7 +49,7 @@ CREATE TABLE issue(
 	status_id integer,
 	severity_id integer,
 	resolution_id integer,
-	version varchar(50),
+	target_version varchar(50),
 	project_id integer references project(id) NOT NULL,
 	dataset_id integer references dataset(id) NOT NULL,
 	short_description varchar(200) NOT NULL,
