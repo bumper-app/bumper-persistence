@@ -13,6 +13,9 @@ import com.bumper.utils.pojo.File;
  */
 public class FileDAO extends AbstractGenericDAO<File> {
 
+    /**
+     *
+     */
     public FileDAO() {
         super(File.class);
     }

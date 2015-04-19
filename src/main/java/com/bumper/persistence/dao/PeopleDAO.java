@@ -13,6 +13,9 @@ import com.bumper.utils.pojo.People;
  */
 public class PeopleDAO extends AbstractGenericDAO<People> {
 
+    /**
+     *
+     */
     public PeopleDAO() {
         super(People.class);
     }

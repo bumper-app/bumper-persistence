@@ -20,18 +20,34 @@ public class DAOException extends Exception{
         this.innerMessage = innerMessage;
     }
     
+    /**
+     *
+     * @return
+     */
     public StackTraceElement[] getStackTraceElement(){
         return this.stackTrace;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getInnerMessage() {
         return innerMessage;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getOperation() {
         return operation;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getObjectAffected() {
         return objectAffected;
     }

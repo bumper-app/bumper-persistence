@@ -20,34 +20,72 @@ import java.util.List;
  */
 public class IssueDAO extends AbstractGenericDAO<Issue> {
 
+    /**
+     *
+     */
     public IssueDAO() {
         super(Issue.class);
     }
 
+    /**
+     *
+     * @param externalID
+     * @return
+     */
     public Issue findByExternalId(String externalID) {
         return this.select().where("exteralId", externalID).findOne();
     }
 
+    /**
+     *
+     * @param dataset
+     * @return
+     */
     public List<Issue> findByDataset(Dataset dataset) {
         return this.select().where("dataset", dataset).findAll();
     }
 
+    /**
+     *
+     * @param project
+     * @return
+     */
     public List<Issue> findByProject(Project project) {
         return this.select().where("project", project).findAll();
     }
 
+    /**
+     *
+     * @param status
+     * @return
+     */
     public List<Issue> findByStatus(Status status) {
         return this.select().where("status", status).findAll();
     }
 
+    /**
+     *
+     * @param resolution
+     * @return
+     */
     public List<Issue> findByResolution(Resolution resolution) {
         return this.select().where("resolution", resolution).findAll();
     }
 
+    /**
+     *
+     * @param severity
+     * @return
+     */
     public List<Issue> findBySeverity(Severity severity) {
         return this.select().where("severity", severity).findAll();
     }
 
+    /**
+     *
+     * @param type
+     * @return
+     */
     public List<Issue> findByIssueType(IssueType type) {
         return this.select().where("issueType", type).findAll();
     }

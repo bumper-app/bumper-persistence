@@ -14,14 +14,27 @@ import java.util.List;
  */
 public class ProjectDAO extends AbstractGenericDAO<Project> {
 
+    /**
+     *
+     */
     public ProjectDAO() {
         super(Project.class);
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Project findByName(String name) {
         return this.select().where("name", name).findOne();
     }
 
+    /**
+     *
+     * @param dataset
+     * @return
+     */
     public List<Project> findByDataset(String dataset) {
         return this.select().where("dataset", dataset).findAll();
     }

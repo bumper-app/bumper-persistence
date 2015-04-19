@@ -12,6 +12,10 @@ import com.bumper.persistence.dao.PeopleDAO;
  */
 public class Main {
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
 
         PeopleDAO pdao = new PeopleDAO();

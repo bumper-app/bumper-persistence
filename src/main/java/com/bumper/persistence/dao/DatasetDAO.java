@@ -13,10 +13,18 @@ import com.bumper.utils.pojo.Dataset;
  */
 public class DatasetDAO extends AbstractGenericDAO<Dataset> {
 
+    /**
+     *
+     */
     public DatasetDAO() {
         super(Dataset.class);
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
     public Dataset findByName(String name) {
         return this.select().where("name", name).findOne();
     }
