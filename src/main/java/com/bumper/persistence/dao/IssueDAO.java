@@ -7,11 +7,7 @@ package com.bumper.persistence.dao;
 
 import com.bumper.utils.pojo.Dataset;
 import com.bumper.utils.pojo.Issue;
-import com.bumper.utils.pojo.IssueType;
 import com.bumper.utils.pojo.Project;
-import com.bumper.utils.pojo.Resolution;
-import com.bumper.utils.pojo.Severity;
-import com.bumper.utils.pojo.Status;
 import java.util.List;
 
 /**
@@ -59,7 +55,7 @@ public class IssueDAO extends AbstractGenericDAO<Issue> {
      * @param status
      * @return
      */
-    public List<Issue> findByStatus(Status status) {
+    public List<Issue> findByStatus(String status) {
         return this.select().where("status", status).findAll();
     }
 
@@ -68,7 +64,7 @@ public class IssueDAO extends AbstractGenericDAO<Issue> {
      * @param resolution
      * @return
      */
-    public List<Issue> findByResolution(Resolution resolution) {
+    public List<Issue> findByResolution(String resolution) {
         return this.select().where("resolution", resolution).findAll();
     }
 
@@ -77,7 +73,7 @@ public class IssueDAO extends AbstractGenericDAO<Issue> {
      * @param severity
      * @return
      */
-    public List<Issue> findBySeverity(Severity severity) {
+    public List<Issue> findBySeverity(String severity) {
         return this.select().where("severity", severity).findAll();
     }
 
@@ -86,7 +82,7 @@ public class IssueDAO extends AbstractGenericDAO<Issue> {
      * @param type
      * @return
      */
-    public List<Issue> findByIssueType(IssueType type) {
+    public List<Issue> findByIssueType(String type) {
         return this.select().where("issueType", type).findAll();
     }
 
